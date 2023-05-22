@@ -98,9 +98,106 @@ a{
     border: rgb(38, 38, 38) solid 14px;
     cursor: grab;
     z-index: 3;
+}
+
+.x-box svg{
+transform: scale(0.95);
+}
+
+.x-box{
+    position: relative;
+    min-height: 500px;
+    min-width: 410px;
+    flex-grow:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+.x-box p{
+    position: absolute;
+    top:45%;
+    display: none;
 
 }
 
+.x-box:hover p{
+    display:block;
+}
 
+.rotating-icon{
+    animation: rotate 10s infinite;
+
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotat(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.arrow {
+    border: solid rgb(38, 38, 38);
+    border-width: 0 12px 12px 0;
+    padding: 12px;
+
+}
+
+.left-expand-arrow {
+    margin-right: 60px;
+    animation: bounceLeft 3s infinite;
+}
+
+@keyframes bounceLeft {
+    0%,
+    20%,
+    50%,
+    80%,
+    100%{
+        transform: translate(0) rotate(135deg);
+    }
+    40%{
+        transform: translate(-30px) rotate(135deg);
+    }
+
+    60% {
+        transform: translate(-15px) rotate(135deg);
+    }
+    }
+
+.right-expand-arrow {
+        animation: bounceRight 3s infinite;
+    }
+
+@keyframes bounceRight {
+        0%,
+        20%,
+        50%,
+        80%,
+        100%{
+            transform: translate(0) rotate(-45deg);
+        }
+        40%{
+            transform: translate(30px) rotate(-45deg);
+        }
+    
+        60% {
+            transform: translate(15px) rotate(-45deg);
+        }
+        }
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    max-width: 250px;
+}
+
+.logo-container img{
+    width: 100%;
+}
 
 
