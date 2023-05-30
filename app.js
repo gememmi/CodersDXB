@@ -5,7 +5,7 @@ const allPills = document.querySelectorAll('.pill')
 const allHiddenPills = document.querySelectorAll('.hidden-pill')
 const allArrows = document.querySelectorAll('.arrow')
 const expandPill = document.querySelector('#expand')
-const xLetter = document.querySelector('#x-letter')
+const xLetterPath = document.querySelector('#x-letter')
 const xLetterSVG = document.querySelector('#x-letter-svg')
 const xBox = document.querySelector('.x-box')
 const socialFan = document.querySelector('.social-fan')
@@ -89,6 +89,7 @@ const addTheme = (
         allHiddenPills.forEach(hiddenPill => {
             hiddenPill.style.opacity = opacity
             hiddenPill.style.borderWidth = strokeWidth
+            hiddenPill.style.backgroundColor = pillBackgroundColor || colorPalettes[paletteIndex][socialFanIndex].fill
             hiddenPill.style.borderColor = lineColor || colorPalettes[paletteIndex][socialFanIndex].altStroke
             hiddenPill.style.borderRadius = borderRadius
         })
@@ -108,27 +109,41 @@ const addTheme = (
 const moveSlider = () => {
    const sliderInput = document.querySelector('#slider-input')
    const sliderValue = sliderInput.value
-   if (sliderValue !== 0) {
-    bodyBackgroundColor, strokeWidth,svgFill,opacity,lineColor,borderRadius,boxBackgroundColor,pillBackgroundColor
+   if (sliderValue == 0) {
+    // bodyBackgroundColor, strokeWidth,svgFill,opacity,lineColor,borderRadius,boxBackgroundColor,pillBackgroundColor
     addTheme('white', '12px', null, 1,  'rgb(38, 38, 38)', '100px', 'white', null)
    }
    if (sliderValue > 1 && sliderValue <=3){
-    //addTheme
+    addTheme('white', '2px', 'white', 0.5, null, '75px', null, 'white')
    }
    if (sliderValue >= 4 && sliderValue <= 6){
-    //addTheme
+    addTheme('white', '1px', 'white', 0.5, null, '90px', null, 'white')
    }
    if (sliderValue >= 7 && sliderValue < 9){
-    //addTheme
+    addTheme('white', '2px', 'white', 0.5, 'rgb(38, 38, 38)', '50px', null, 'white')
    }
-   if (sliderValue === 10){
-    //addTheme 
+   if (sliderValue == 10){
+    addTheme('rgb(38, 38, 38)', '12px', 'white', 1, 'black', 0, 'tranparent', 'white')
    }
 }
 
+
+
 sliderInput.addEventListener('input', moveSlider)
 
+const changePalette = () => {
+    xLetterPath.classList.add('pulse')
+    if (paletteIndex >= 2){
+        paletteIndex = 0
+    }
+    else {
+        paletteIndex++
+    }
+    moveSlider()
+    setTimeout(() => xLetterPath.classList.remove('pulse'))
+}
 
+xBox.addEventListener('click', changePalette)
 
 
 
