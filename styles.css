@@ -200,4 +200,86 @@ transform: scale(0.95);
     width: 100%;
 }
 
+.hidden-pill {
+    height: 100%;
+    width: 100%;
+    border: solid 12px rgb(38, 38, 38);
+    box-sizing: border-box;
+    border-radius: 100px;
+    text-align:center;
+}
+
+.social-fan {
+   position: relative; 
+}
+
+.social-fan .social {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform-origin: top right;
+    z-index: 10;
+}
+
+
+.social-fan:hover .instagram {
+    display: block;
+    animation: fanInstagram 1s ease-in-out;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes fanInstagram {
+    0% {
+        transform: rotate(0deg);
+        right: 0;
+        top: 0;
+    }
+    100% {
+        transform: rotate(-20deg);
+        right: 40;
+        top: -12;
+    }
+}
+
+.social-fan:hover .email {
+    display: block;
+    animation: fanEmail 1s ease-in-out;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes fanEmail{
+    0% {
+        transform: rotate(0deg);
+        right: 0;
+        top: 0;
+    }
+    100% {
+        transform: rotate(-40deg);
+        right: 100px;
+        top: -16px;
+    }
+}
+
+.social-fan:hover .coding-tips {
+    display: block;
+    animation: fanEmail 1s ease-in-out;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes fanCodingTips{
+    0% {
+        transform: rotate(0);
+        right: 0px;
+        top: 0px;
+    }
+    100% {
+        transform: rotate(-60deg);
+        right: 130px;
+        top: -20px;
+    }
+}
+
 
