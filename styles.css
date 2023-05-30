@@ -11,7 +11,7 @@
 body{
     padding: 0;
     margin: 0;
-
+    display: flex;
 }
 
 a{
@@ -237,8 +237,8 @@ transform: scale(0.95);
     }
     100% {
         transform: rotate(-20deg);
-        right: 40;
-        top: -12;
+        right: 40px;
+        top: -12px;
     }
 }
 
@@ -264,7 +264,7 @@ transform: scale(0.95);
 
 .social-fan:hover .coding-tips {
     display: block;
-    animation: fanEmail 1s ease-in-out;
+    animation: fanCodingTips 1s ease-in-out;
     animation-fill-mode: forwards;
 
 }
@@ -272,14 +272,64 @@ transform: scale(0.95);
 @keyframes fanCodingTips{
     0% {
         transform: rotate(0);
-        right: 0px;
-        top: 0px;
+        right: 0;
+        top: 0;
     }
     100% {
         transform: rotate(-60deg);
         right: 130px;
         top: -20px;
     }
+} 
+
+
+.stretchable:hover {
+    flex-grow: 5 !important;
 }
 
+#takeover:hover ~ #squish{
+    min-width: 0;
+}
 
+#takeover:hover .arrow-container {
+    display: none;
+}
+
+.large-box:hover {
+    flex-grow: 10 !important;
+}
+
+.large-box:hover .text-box{
+     display: block;
+    
+}
+
+.large-box .text-box{
+    max-width: 300px;
+}
+
+.large-box .text-box p {
+    font-size: 18px;
+}
+
+.large-box .text-box a {
+    font-size: 18px;
+    color: rgb(196, 104, 0)
+}
+
+.small-box.stretchable:hover .hidden {
+    display: block;
+}
+
+.hidden-box {
+    height: auto;
+    width: 0;
+    background-color: rgb(222, 222, 222);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden-box .text-box {
+    margin: 30px;
+}
